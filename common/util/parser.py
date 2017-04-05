@@ -18,7 +18,7 @@ def get_page(url):
 	return soup
 
 def parser_category(category_url, category_name):
-	print("Категория {}".format(category_name))
+	# print("Категория {}".format(category_name))
 	category_page = get_page('{0}{1}'.format(domain, category_url))
 	product_cards = category_page.select('.list_products .product a')
 

@@ -25,7 +25,9 @@ SECRET_KEY = '6iqmg#dblfvz-9o!s$q-+07cl5)yx9q1&8k#$551apg+fi*tl1'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'apgreeid.ru'
+]
 
 # django-background-tasks (1.0.15)
 
