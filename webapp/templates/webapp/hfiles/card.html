@@ -1,0 +1,25 @@
+{% extends 'webapp/base.html' %}
+
+{% load static %}
+
+{% block title %}
+  {{ product.name }}
+{% endblock %}
+
+{% block content %}
+<div id="sidebar" class="col-sm-3">
+<a href="/">Все товары</a>
+<br>
+</div>
+  <div class="product-detail">
+    <div class="col-sm-8">
+      <h1>{{ product.name }}</h1>
+      <h2><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></h2>
+      <p class="price">{{ product.price }} руб.</p>
+      <br>
+      <span>Описание {{ product.description | linebreaks}}</span>
+      <br>
+      <span >Цвета {{ product.color | linebreaks}}</span>
+    </div>
+  </div>
+{% endblock %}
