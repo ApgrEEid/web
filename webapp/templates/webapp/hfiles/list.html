@@ -6,31 +6,15 @@
   {{ product.name }}
 {% endblock %}
 {% block content %}
-<div class="col-lg-4">
-<h3> Поиск </h3>
+<!-- <div class="col-lg-4">
 
-<form action="/search" method="GET">
-  {% csrf_token %}
-  <input type="text" id="search" name="search" />
-  <button>Искать</button>
-</form>
-</div>
+</div> -->
 
 
 <ui id="search-results">
 
 </ui>
-
-<div id="sidebar" class="col-lg-4">
-<br>
-<a href="/">Все товары</a>
-<br>
-{% for cat in categories %}
-  <a href="{{cat.get_absolute_url}}">{{ cat.name }}</a>
-  <br>
-{% endfor %}
-</div>
-<div id="main" class="product_list col-lg-4">
+<div id="main" class="product_list col-lg-8">
   {% for product in products %}
   <div class="product-detail">
     <div class="col-sm-8">
@@ -42,4 +26,22 @@
   </div>
   {% endfor %}
 </div>
+<div id="sidebar" class="col-lg-4">
+<br>
+<h3> Поиск </h3>
+
+<form action="/search" method="GET">
+  {% csrf_token %}
+  <input type="text" id="search" name="search" />
+  <button>Искать</button>
+</form>
+<br>
+<a href="/">Все товары</a>
+<br>
+{% for cat in categories %}
+  <a href="{{cat.get_absolute_url}}">{{ cat.name }}</a>
+  <br>
+{% endfor %}
+</div>
+
 {% endblock %}
