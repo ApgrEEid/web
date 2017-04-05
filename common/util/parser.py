@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 from urllib.request import urlopen
+from django.utils.crypto import get_random_string
 
 domain = 'http://verda-m.ru'
 products = []
@@ -36,6 +37,9 @@ def main():
 def parse_product(product_url, product_name, product_id, category_name):
 	pr_p = get_page('{0}{1}'.format(domain, product_url))
 	price = pr_p.select('meta[itemprop="price"]')[0]['content']
+	img_link = pr_p.select('img.js-sm-gal_main-img')[0]['src']
+	img_name = "{}.jpg".format(get_random_string(10, 'abcdefghijklmnopqrstuvwxyz0123456789'))
+	img_data = urlopen("{0}{1}".format(domain, img_link)).read()
 	description_l = pr_p.select('div[itemprop="description"]')[0].contents
 	description = ""
 	for line in description_l:
@@ -46,7 +50,9 @@ def parse_product(product_url, product_name, product_id, category_name):
 		"category": category_name,
 		"name": product_name,
 		"price": price,
-		"descriptions": description
+		"descriptions": description,
+		"img_data": img_data,
+		"img_name": img_name
 	}
 	products.append(product_data)
 

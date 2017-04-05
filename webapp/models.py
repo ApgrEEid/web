@@ -26,6 +26,7 @@ class Product(models.Model):
 	slug = models.SlugField(max_length=200, null=True, db_index=True, verbose_name="Ссылка")
 	price = models.DecimalField(max_digits=20, null=True, decimal_places=2, verbose_name="Цена")
 	description = models.TextField(blank=True, null=True, verbose_name="Описание")
+	image=models.ImageField(upload_to='images',null=True, blank=True)
 
 	class Meta:
 		ordering = ['name']
