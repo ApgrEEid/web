@@ -26,6 +26,7 @@ SECRET_KEY = '6iqmg#dblfvz-9o!s$q-+07cl5)yx9q1&8k#$551apg+fi*tl1'
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    '127.0.0.1',
     'apgreeid.ru'
 ]
 

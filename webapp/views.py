@@ -29,7 +29,7 @@ def ProductSearch(request):
         search_text = request.GET['search']
     else:
         search_text = ''
-    print("Search text: ", search_text)
+    print(u"Search text: ", search_text)
 
     categories = Category.objects.all()  
     products = Product.objects.filter(name__contains=search_text)
